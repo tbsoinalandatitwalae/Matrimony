@@ -38,14 +38,18 @@
           </div>
         </div>
 
-        <!-- Personal Info -->
+        <!-- Personal Information -->
         <section class="profile-section">
           <h3>👤 Personal Information</h3>
           <div class="info-grid">
-            <p><strong>Age:</strong> <span id="age"></span></p>
-            <p><strong>Marital Status:</strong> <span id="marital"></span></p>
+            <p><strong>Date of Birth:</strong> <span id="dob"></span></p>
+            <p><strong>Height:</strong> <span id="height"></span></p>
+            <p><strong>Weight:</strong> <span id="weight"></span></p>
             <p><strong>Education:</strong> <span id="education"></span></p>
-            <p><strong>Location:</strong> <span id="location"></span></p>
+            <p><strong>Salary:</strong> <span id="salary"></span></p>
+            <p><strong>Current Location:</strong> <span id="currentLocation"></span></p>
+            <p><strong>Village Location:</strong> <span id="villageLocation"></span></p>
+            <p><strong>Marital Status:</strong> <span id="marital"></span></p>
           </div>
         </section>
 
@@ -84,37 +88,45 @@
   <!-- Candidate Data -->
   <script src="data.js"></script>
 
-  <!-- Dynamic Profile Loader + WhatsApp -->
+  <!-- Dynamic Profile Loader -->
   <script>
     const params = new URLSearchParams(window.location.search);
-    const id = parseInt(params.get("id"));
+    const id = parseInt(params.get("id"), 10);
 
     const candidate = candidates.find(c => c.id === id);
 
     if (candidate) {
-      document.getElementById("photo").src = candidate.image;
-      document.getElementById("name").innerText = candidate.name;
+      // Header
+      document.getElementById("photo").src = candidate.image || "images/default.jpg";
+      document.getElementById("name").innerText = candidate.name || "—";
       document.getElementById("basic").innerText =
-        `${candidate.age} Years • ${candidate.education} • ${candidate.location}`;
-      document.getElementById("community").innerText = candidate.community;
+        `${candidate.education || "—"} • ${candidate.currentLocation || "—"}`;
+      document.getElementById("community").innerText = candidate.community || "—";
 
-      document.getElementById("age").innerText = candidate.age;
-      document.getElementById("marital").innerText = candidate.maritalStatus;
-      document.getElementById("education").innerText = candidate.education;
-      document.getElementById("location").innerText = candidate.location;
-      document.getElementById("bio").innerText = candidate.bio;
+      // Personal Info
+      document.getElementById("dob").innerText = candidate.dob || "—";
+      document.getElementById("height").innerText = candidate.height || "—";
+      document.getElementById("weight").innerText = candidate.weight || "—";
+      document.getElementById("education").innerText = candidate.education || "—";
+      document.getElementById("salary").innerText = candidate.salary || "—";
+      document.getElementById("currentLocation").innerText = candidate.currentLocation || "—";
+      document.getElementById("villageLocation").innerText = candidate.villageLocation || "—";
+      document.getElementById("marital").innerText = candidate.maritalStatus || "—";
 
-      // WhatsApp setup
+      // About
+      document.getElementById("bio").innerText =
+        candidate.bio || "Details will be shared after confirmation.";
+
+      // WhatsApp
       const message = encodeURIComponent(
-        `Hello, I viewed your profile on Nalanda Matrimony and would like to connect.`
+        "Hello, I viewed your profile on Nalanda Matrimony and would like to connect."
       );
 
       if (candidate.mobile) {
         document.getElementById("whatsappLink").href =
           `https://wa.me/91${candidate.mobile}?text=${message}`;
       } else {
-        document.getElementById("whatsappLink").href =
-          "https://wa.me/918805512694";
+        document.getElementById("whatsappLink").style.display = "none";
       }
     }
   </script>
