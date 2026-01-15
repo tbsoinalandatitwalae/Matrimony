@@ -44,7 +44,7 @@ const candidates = [
     weight: "50 kg",
     education: "10",
     salary: "--",
-    currentLocation: "Mankhurd-Mumbai",
+    currentLocation: "Mankhurd, Mumbai",
     villageLocation: "Belapur",
     community: "Buddhist",
     maritalStatus: "Never Married",
@@ -67,7 +67,7 @@ const candidates = [
     community: "Buddhist",
     maritalStatus: "Never Married",
     image: "4.jpg",
-    bio: "Expect Simple, caring, and Gov or private job",
+    bio: "Expect simple, caring, and Govt or private job",
     mobile: "9867459286"
   },
 
@@ -75,7 +75,7 @@ const candidates = [
     id: 5,
     name: "Dilip Bapu Hinge",
     gender: "Groom",
-    dob: "24 MAr 1988",
+    dob: "24 Mar 1988",
     height: "5 ft 5 in",
     weight: "65 kg",
     education: "6",
@@ -88,7 +88,8 @@ const candidates = [
     bio: "Family-oriented, believes in mutual respect and understanding.",
     mobile: "7057311225"
   },
-    {
+
+  {
     id: 6,
     name: "Sandip Bhalerao",
     gender: "Groom",
@@ -97,7 +98,7 @@ const candidates = [
     weight: "45 kg",
     education: "12",
     salary: "1.5 LPA",
-    currentLocation: "Khadawali,Thane",
+    currentLocation: "Khadawali, Thane",
     villageLocation: "Nashik, Maharashtra",
     community: "Buddhist",
     maritalStatus: "Never Married",
@@ -105,11 +106,12 @@ const candidates = [
     bio: "Family-oriented, believes in mutual respect and understanding.",
     mobile: "9988776655"
   },
-    {
+
+  {
     id: 7,
     name: "Kishor Rajiv More",
     gender: "Groom",
-    dob: "05 OCt 1989",
+    dob: "05 Oct 1989",
     height: "5 ft 4 in",
     weight: "45 kg",
     education: "8",
@@ -122,16 +124,17 @@ const candidates = [
     bio: "Family-oriented, believes in mutual respect and understanding.",
     mobile: "9988776655"
   },
-    {
+
+  {
     id: 8,
     name: "Sagar Pradip Bhalerao",
     gender: "Groom",
-    dob: "20 MAr 1993",
+    dob: "20 Mar 1993",
     height: "5 ft 5 in",
     weight: "45 kg",
     education: "8",
     salary: "1.8 LPA",
-    currentLocation: "Khadawali,Thane",
+    currentLocation: "Khadawali, Thane",
     villageLocation: "Nashik, Maharashtra",
     community: "Buddhist",
     maritalStatus: "Never Married",
@@ -139,10 +142,11 @@ const candidates = [
     bio: "Family-oriented, believes in mutual respect and understanding.",
     mobile: "7821805297"
   },
-    {
+
+  {
     id: 9,
     name: "Abhijit Ashok Shirke",
-    gender: "Bride",
+    gender: "Groom",
     dob: "22 Nov 1995",
     height: "6 ft 0 in",
     weight: "72 kg",
@@ -156,7 +160,8 @@ const candidates = [
     bio: "Family-oriented, believes in mutual respect and understanding.",
     mobile: "7021312143"
   },
-    {
+
+  {
     id: 10,
     name: "Shubham Anil Ubale",
     gender: "Groom",
@@ -165,7 +170,7 @@ const candidates = [
     weight: "58 kg",
     education: "Mechanical Eng.",
     salary: "4.5 LPA",
-    currentLocation: "Titwala,Thane",
+    currentLocation: "Titwala, Thane",
     villageLocation: "Igatpuri, Maharashtra",
     community: "Buddhist",
     maritalStatus: "Never Married",
@@ -173,16 +178,17 @@ const candidates = [
     bio: "Family-oriented, believes in mutual respect and understanding.",
     mobile: "7276673559"
   },
-    {
+
+  {
     id: 11,
     name: "Lokesh Arjun Gaikwad",
     gender: "Groom",
-    dob: "11 April 1988",
+    dob: "11 Apr 1988",
     height: "5 ft 8 in",
     weight: "58 kg",
     education: "12",
     salary: "10.20 LPA",
-    currentLocation: "Ambernath,Thane",
+    currentLocation: "Ambernath, Thane",
     villageLocation: "Ambernath, Maharashtra",
     community: "Buddhist",
     maritalStatus: "Never Married",
@@ -190,16 +196,17 @@ const candidates = [
     bio: "Family-oriented, believes in mutual respect and understanding.",
     mobile: "9767743775"
   },
-    {
+
+  {
     id: 12,
-    name: "Aakash satrev Rajguru",
+    name: "Aakash Satrev Rajguru",
     gender: "Groom",
     dob: "16 Feb 1996",
     height: "5 ft 8 in",
     weight: "58 kg",
     education: "M.Com",
     salary: "6.0 LPA",
-    currentLocation: "Ambivali,Thane",
+    currentLocation: "Ambivali, Thane",
     villageLocation: "Ambivali, Maharashtra",
     community: "Buddhist",
     maritalStatus: "Never Married",
@@ -207,11 +214,12 @@ const candidates = [
     bio: "Family-oriented, believes in mutual respect and understanding.",
     mobile: "8976534807"
   },
-    {
+
+  {
     id: 13,
     name: "Sanjay Anil Bhatkar",
     gender: "Groom",
-    dob: "04 OCt 1997",
+    dob: "04 Oct 1997",
     height: "5 ft 5 in",
     weight: "57 kg",
     education: "B.Com",
@@ -223,5 +231,41 @@ const candidates = [
     image: "13.jpg",
     bio: "Family-oriented, believes in mutual respect and understanding.",
     mobile: "9082778592"
+  },
+
+  {
+    id: 14,
+    name: "Priti Kiran Shardul",
+    gender: "Bride",
+    dob: "24 Jun 1999",
+    height: "5 ft 3 in",
+    weight: "75 kg",
+    education: "Master of Pharmacy",
+    salary: "--",
+    currentLocation: "Bhandup, Mumbai",
+    villageLocation: "Nashik, Maharashtra",
+    community: "Buddhist",
+    maritalStatus: "Never Married",
+    image: "14.jpg",
+    bio: "Family-oriented, believes in mutual respect and understanding.",
+    mobile: "9819043231"
+  },
+
+  {
+    id: 15,
+    name: "Raman Prabhakar Kharat",
+    gender: "Groom",
+    dob: "02 Jul 1990",
+    height: "5 ft 3 in",
+    weight: "70 kg",
+    education: "S.Y.B.A",
+    salary: "4.2 LPA",
+    currentLocation: "Titwala, Mumbai",
+    villageLocation: "Chembur, Maharashtra",
+    community: "Buddhist",
+    maritalStatus: "Never Married",
+    image: "15.jpg",
+    bio: "Family-oriented, believes in mutual respect and understanding.",
+    mobile: "9867973711"
   }
 ];

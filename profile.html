@@ -3,10 +3,14 @@
 
 <head>
   <meta charset="UTF-8">
+  <!-- ✅ MOBILE FIX (ADDED) -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Nalanda Matrimony Profiles</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
+
 <script src="auth.js"></script>
 <script>
   function logout() {
@@ -15,19 +19,19 @@
     window.location.href = "index.html";
   }
 </script>
+
 <body>
 
   <!-- 🌸 Header -->
-<header class="site-header">
-  <div class="header-content">
-    <h1>🌸 Nalanda Matrimony</h1>
-    <p>Verified Matrimonial Biodata</p>
-  </div>
+  <header class="site-header">
+    <div class="header-content">
+      <h1>🌸 Nalanda Matrimony</h1>
+      <p>Verified Matrimonial Biodata</p>
+    </div>
 
-  <!-- Logout Button -->
-  <button class="logout-btn" onclick="logout()">Logout</button>
-</header>
-
+    <!-- Logout Button -->
+    <button class="logout-btn" onclick="logout()">Logout</button>
+  </header>
 
   <!-- 🔍 Filters -->
   <div class="filter-bar">
@@ -64,24 +68,24 @@
   <!-- 💍 Profiles Grid -->
   <div id="profiles" class="grid"></div>
 
-  <!-- 🌐 Footer -->
-<footer>
-  <p>© 2026 Nalanda Matrimony | Designed with ❤️ in Maharashtra</p>
-  <p>Contact: tbsoinalandatitwalae@gmail.com</p>
+  <!-- 🌐 Footer (UNCHANGED) -->
+  <footer>
+    <p>© 2026 Nalanda Matrimony | Designed with ❤️ in Maharashtra</p>
+    <p>Contact: tbsoinalandatitwalae@gmail.com</p>
 
-  <p class="disclaimer">
-    Disclaimer: Nalanda Matrimony is a community-based matrimonial information platform.
-    All profiles and details are shared by members or their families.
-    Nalanda Matrimony does not verify, guarantee, or take responsibility for the accuracy,
-    authenticity, or intentions of any profile. Users are advised to independently verify
-    all information before proceeding with any matrimonial decisions.
-  </p>
-</footer>
+    <p class="disclaimer">
+      Disclaimer: Nalanda Matrimony is a community-based matrimonial information platform.
+      All profiles and details are shared by members or their families.
+      Nalanda Matrimony does not verify, guarantee, or take responsibility for the accuracy,
+      authenticity, or intentions of any profile. Users are advised to independently verify
+      all information before proceeding with any matrimonial decisions.
+    </p>
+  </footer>
 
   <!-- Candidate Data -->
   <script src="data.js"></script>
 
-  <!-- Filter & Render Script -->
+  <!-- 🔎 Filter & Render Script -->
   <script>
     const profilesContainer = document.getElementById("profiles");
     const searchInput = document.getElementById("searchInput");
@@ -92,21 +96,22 @@
 
     function renderProfiles(data) {
       if (data.length === 0) {
-        profilesContainer.innerHTML = "<p style='text-align:center;'>No profiles found</p>";
+        profilesContainer.innerHTML =
+          "<p style='text-align:center;'>No profiles found</p>";
         return;
       }
 
       profilesContainer.innerHTML = data.map(candidate => `
         <div class="card">
           <img src="${candidate.image}" alt="${candidate.name}" class="profile-img">
+
           <div class="info">
             <h2>${candidate.name}</h2>
-            <p>Age: ${candidate.age}</p>
             <p>Education: ${candidate.education}</p>
-            <p>Location: ${candidate.location}</p>
+            <p>Location: ${candidate.currentLocation}</p>
             <p>Community: ${candidate.community}</p>
-            <p>Marital Status: ${candidate.maritalStatus}</p>
             <p>${candidate.bio}</p>
+
             <a href="details.html?id=${candidate.id}" class="detail-link">
               View Full Profile
             </a>
@@ -118,38 +123,42 @@
     function applyFilters() {
       let filtered = [...candidates];
 
-      // 🔍 Search
+      /* 🔍 SEARCH (FIXED FIELD NAMES) */
       const text = searchInput.value.toLowerCase();
       if (text) {
         filtered = filtered.filter(c =>
           c.name.toLowerCase().includes(text) ||
           c.education.toLowerCase().includes(text) ||
-          c.location.toLowerCase().includes(text)
+          c.currentLocation.toLowerCase().includes(text)
         );
       }
 
-      // 🎂 Age
-      if (ageFilter.value) {
-        const [min, max] = ageFilter.value.split("-").map(Number);
-        filtered = filtered.filter(c => c.age >= min && c.age <= max);
-      }
-
-      // 🎓 Education
+      /* 🎓 EDUCATION (PARTIAL MATCH FIX) */
       if (educationFilter.value) {
-        filtered = filtered.filter(c => c.education === educationFilter.value);
+        filtered = filtered.filter(c =>
+          c.education.toLowerCase().includes(
+            educationFilter.value.toLowerCase()
+          )
+        );
       }
 
-      // 📍 Location
+      /* 📍 LOCATION */
       if (locationFilter.value) {
-        filtered = filtered.filter(c => c.location === locationFilter.value);
+        filtered = filtered.filter(c =>
+          c.currentLocation.toLowerCase().includes(
+            locationFilter.value.toLowerCase()
+          )
+        );
       }
+
+      /* ⚠️ AGE FILTER DISABLED (NO AGE FIELD IN DATA) */
+      // Intentionally skipped to avoid breaking
 
       renderProfiles(filtered);
     }
 
-    // Events
+    /* Events */
     searchInput.addEventListener("input", applyFilters);
-    ageFilter.addEventListener("change", applyFilters);
     educationFilter.addEventListener("change", applyFilters);
     locationFilter.addEventListener("change", applyFilters);
 
@@ -161,7 +170,7 @@
       renderProfiles(candidates);
     });
 
-    // Initial load
+    /* Initial Load */
     renderProfiles(candidates);
   </script>
 

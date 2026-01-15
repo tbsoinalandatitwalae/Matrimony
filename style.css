@@ -653,3 +653,99 @@ footer {
   text-decoration: underline;
 }
 
+
+/* ================= MOBILE FRIENDLY UPDATES ================= */
+
+/* Prevent horizontal scrolling */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Header text scaling */
+@media (max-width: 600px) {
+  header h1,
+  .site-header h1 {
+    font-size: 1.4rem;
+  }
+
+  header p,
+  .site-header p {
+    font-size: 0.85rem;
+  }
+}
+
+/* Filter bar mobile stacking */
+@media (max-width: 700px) {
+  .filter-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-bar input,
+  .filter-bar select,
+  .filter-bar button {
+    width: 100%;
+  }
+}
+
+/* Profile grid spacing on mobile */
+@media (max-width: 600px) {
+  .grid {
+    padding: 12px;
+    gap: 15px;
+  }
+
+  .card {
+    margin: 0;
+  }
+}
+
+/* Profile details page */
+@media (max-width: 600px) {
+  .profile-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .detail-photo {
+    width: 130px;
+    height: 160px;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Login page adjustments */
+@media (max-width: 480px) {
+  .login-card {
+    padding: 22px 18px;
+  }
+
+  .login-card h2 {
+    font-size: 1.3rem;
+  }
+}
+
+/* Footer readability */
+@media (max-width: 600px) {
+  footer {
+    font-size: 0.8rem;
+    padding: 12px 10px;
+  }
+
+  .disclaimer {
+    font-size: 0.7rem;
+  }
+}
+
+/* Logout button touch friendly */
+@media (max-width: 600px) {
+  .logout-btn {
+    padding: 6px 12px;
+    font-size: 0.75rem;
+  }
+}
+
