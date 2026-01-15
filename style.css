@@ -486,3 +486,31 @@ footer {
     border: 1px solid black;
   }
 }
+/*---------------- log out below*/
+/* ===== Header ===== */
+.site-header {
+  position: relative;
+  background-color: #8e44ad;
+  color: white;
+  text-align: center;
+  padding: 20px 10px 35px;
+}
+
+/* Logout Button */
+.logout-btn {
+  position: absolute;
+  right: 15px;
+  bottom: 10px;
+  background-color: #ffffff;
+  color: #8e44ad;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.logout-btn:hover {
+  background-color: #f3e9fa;
+}

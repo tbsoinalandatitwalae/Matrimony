@@ -14,3 +14,15 @@
     window.location.replace("profile.html");
   }
 })();
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const currentPage = window.location.pathname.split("/").pop();
+  const logoutBtn = document.querySelector(".logout-btn");
+
+  if (currentPage === "" || currentPage === "index.html") {
+    if (logoutBtn) logoutBtn.style.display = "none";
+  }
+});

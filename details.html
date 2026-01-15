@@ -8,13 +8,27 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <script src="auth.js"></script>
+<script>
+  function logout() {
+    localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("userMobile");
+    window.location.href = "index.html";
+  }
+</script>
+
 <body>
 
   <!-- 🌸 Header -->
-  <header class="no-print">
+<header class="site-header">
+  <div class="header-content">
     <h1>🌸 Nalanda Matrimony</h1>
     <p>Verified Matrimonial Biodata</p>
-  </header>
+  </div>
+
+  <!-- Logout Button -->
+  <button class="logout-btn" onclick="logout()">Logout</button>
+</header>
+
 
   <!-- 🔄 Main Layout -->
   <div class="main-layout">
