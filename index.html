@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+  
+
 <head>
   <meta charset="UTF-8">
   <title>Nalanda Matrimony</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
   <!-- 🌟 Header -->
   <header>
@@ -49,21 +52,23 @@
     <p>Contact: nalandamatrimony@example.com</p>
   </footer>
 
-  <script>
-    function login() {
-      const mobile = document.getElementById("mobile").value;
-      const password = document.getElementById("password").value;
+<script>
+  function login() {
+    const mobile = document.getElementById("mobile").value.trim();
+    const password = document.getElementById("password").value.trim();
 
-      // Hardcoded password
-      const hardcodedPassword = "123";
+    const hardcodedPassword = "123";
 
-      if (mobile && password === hardcodedPassword) {
-        alert("Login successful!");
-        window.location.href = "profile.html";
-      } else {
-        alert("Invalid mobile number or password.");
-      }
+    if (mobile.length === 10 && password === hardcodedPassword) {
+      localStorage.setItem("isLoggedIn", "true");
+      localStorage.setItem("userMobile", mobile); // optional
+      alert("Login successful!");
+      window.location.href = "profile.html";
+    } else {
+      alert("Invalid mobile number or password.");
     }
-  </script>
+  }
+</script>
+
 </body>
 </html>

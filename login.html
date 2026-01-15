@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - Nalanda Matrimony</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="login-container">
+    <h2>🔐 Login</h2>
+
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+
+    <button onclick="login()">Login</button>
+
+    <p id="error" class="error-text"></p>
+  </div>
+
+  <script>
+    function login() {
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      // Simple demo credentials
+      if (username === "admin" && password === "1234") {
+        localStorage.setItem("isLoggedIn", "true");
+        window.location.href = "profile.html";
+      } else {
+        document.getElementById("error").innerText =
+          "Invalid username or password";
+      }
+    }
+  </script>
+
+</body>
+</html>
