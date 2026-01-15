@@ -33,6 +33,17 @@
         <input type="password" id="password" placeholder="Enter password">
       </div>
 
+      <!-- ✅ Terms Agreement -->
+      <div class="agree-box">
+        <input type="checkbox" id="agree">
+        <label for="agree">
+          I agree to the
+          <a href="terms.html" target="_blank">Terms & Conditions</a>
+          and
+          <a href="privacy.html" target="_blank">Privacy Policy</a>
+        </label>
+      </div>
+
       <button class="login-btn" onclick="login()">Login</button>
 
       <div class="divider">OR</div>
@@ -50,7 +61,18 @@
   <!-- 🌐 Footer -->
   <footer>
     <p>© 2026 Nalanda Matrimony | Designed with ❤️ in Maharashtra</p>
-    <p>Contact: nalandamatrimony@example.com</p>
+    <p>Contact: tbsoinalandatitwalae@gmail.com</p>
+
+    <p class="disclaimer">
+      Disclaimer: Nalanda Matrimony is a community-based matrimonial information platform.
+      All profiles and details are shared by members or their families.
+      Nalanda Matrimony does not verify, guarantee, or take responsibility for the accuracy,
+      authenticity, or intentions of any profile. Users are advised to independently verify
+      all information before proceeding with any matrimonial decisions.
+    </p>
+
+    <a href="terms.html">Terms & Conditions</a> |
+    <a href="privacy.html">Privacy Policy</a>
   </footer>
 
   <!-- ✅ Login Script -->
@@ -58,16 +80,29 @@
     function login() {
       const mobile = document.getElementById("mobile").value.trim();
       const password = document.getElementById("password").value.trim();
+      const agreed = document.getElementById("agree").checked;
 
       const hardcodedPassword = "123";
 
-      if (mobile.length === 10 && password === hardcodedPassword) {
-        localStorage.setItem("isLoggedIn", "true");
-        localStorage.setItem("userMobile", mobile);
-        window.location.href = "profile.html";
-      } else {
-        alert("Invalid mobile number or password");
+      if (!agreed) {
+        alert("Please agree to the Terms & Conditions and Privacy Policy.");
+        return;
       }
+
+      if (mobile.length !== 10) {
+        alert("Please enter a valid 10 digit mobile number.");
+        return;
+      }
+
+      if (password !== hardcodedPassword) {
+        alert("Invalid password.");
+        return;
+      }
+
+      // ✅ Login success
+      localStorage.setItem("isLoggedIn", "true");
+      localStorage.setItem("userMobile", mobile);
+      window.location.href = "profile.html";
     }
   </script>
 

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Terms & Conditions | Nalanda Matrimony</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- 🌸 Header -->
+  <header class="site-header">
+    <div class="header-content">
+      <h1>🌸 Nalanda Matrimony</h1>
+      <p>Terms & Conditions</p>
+    </div>
+
+    <button class="logout-btn" onclick="logout()">Logout</button>
+  </header>
+
+  <!-- 📄 Content -->
+  <div class="main-layout">
+    <div class="right-panel">
+      <div class="profile-card">
+
+        <h2>Terms & Conditions</h2>
+
+        <p>
+          Welcome to <strong>Nalanda Matrimony</strong>.
+          By accessing or using this website, you agree to be bound by the following
+          Terms and Conditions. If you do not agree with any part of these terms,
+          please do not use the platform.
+        </p>
+
+        <h3>1. Nature of the Platform</h3>
+        <p>
+          Nalanda Matrimony is a community-based matrimonial information platform.
+          The website acts only as an intermediary to display biodata information
+          shared by individuals or their families.
+        </p>
+
+        <h3>2. User Responsibility</h3>
+        <p>
+          Users are solely responsible for verifying the authenticity, accuracy,
+          and background of any profile before proceeding with communication,
+          meetings, or matrimonial decisions.
+        </p>
+
+        <h3>3. No Guarantee or Verification</h3>
+        <p>
+          Nalanda Matrimony does not conduct background checks, identity verification,
+          or validation of personal, professional, or financial information.
+          We do not guarantee marriage outcomes or compatibility.
+        </p>
+
+        <h3>4. Privacy & Data Usage</h3>
+        <p>
+          Mobile numbers and personal details are collected only for login and
+          communication purposes. Nalanda Matrimony does not sell or misuse user data.
+          However, users should exercise caution while sharing personal information
+          with others.
+        </p>
+
+        <h3>5. Prohibited Activities</h3>
+        <p>
+          Users must not:
+        </p>
+        <ul>
+          <li>Provide false or misleading information</li>
+          <li>Misuse contact details of other members</li>
+          <li>Harass, threaten, or abuse other users</li>
+          <li>Use the platform for commercial or fraudulent purposes</li>
+        </ul>
+
+        <h3>6. Limitation of Liability</h3>
+        <p>
+          Nalanda Matrimony shall not be held responsible for any loss, damage,
+          dispute, or harm arising from interactions between users.
+          All actions taken by users are at their own risk.
+        </p>
+
+        <h3>7. Account Access</h3>
+        <p>
+          Access to profiles is restricted to logged-in users.
+          Unauthorized access or misuse may result in blocking of access.
+        </p>
+
+        <h3>8. Changes to Terms</h3>
+        <p>
+          Nalanda Matrimony reserves the right to modify these Terms & Conditions
+          at any time without prior notice. Continued use of the platform
+          constitutes acceptance of updated terms.
+        </p>
+
+        <h3>9. Governing Law</h3>
+        <p>
+          These Terms & Conditions shall be governed by and interpreted in accordance
+          with the laws of India.
+        </p>
+
+        <p style="margin-top:20px;">
+          If you have any questions regarding these terms, please contact us
+          using the details provided on the website.
+        </p>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 🌐 Footer -->
+  <footer>
+    <p>© 2026 Nalanda Matrimony | Designed with ❤️ in Maharashtra</p>
+
+    <p class="disclaimer">
+      Disclaimer: Nalanda Matrimony is a community-based matrimonial information platform.
+      Users are advised to independently verify all information before proceeding.
+    </p>
+  </footer>
+
+  <!-- 🔐 Logout Script -->
+  <script>
+    function logout() {
+      localStorage.removeItem("isLoggedIn");
+      localStorage.removeItem("userMobile");
+      window.location.href = "index.html";
+    }
+  </script>
+
+</body>
+</html>
