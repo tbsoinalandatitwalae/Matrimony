@@ -19,20 +19,20 @@ const candidates = [
 
   {
     id: 2,
-    name: "Rahul Pawar",
-    gender: "Groom",
-    dob: "21 Feb 1995",
-    height: "5 ft 6 in",
-    weight: "65 kg",
-    education: "B.Tech (Mechanical)",
-    salary: "6 LPA",
-    currentLocation: "Pune",
-    villageLocation: "Satara, Maharashtra",
+    name: "Manisha Uttam Chavan",
+    gender: "Bride",
+    dob: "20 Mar 1993",
+    height: "5 ft 5 in",
+    weight: "70 kg",
+    education: "B.A",
+    salary: "2 LPA",
+    currentLocation: "Titwala",
+    villageLocation: "Beed",
     community: "Buddhist",
     maritalStatus: "Never Married",
     image: "images/rahul.jpg",
-    bio: "Working professional with interest in travel and fitness.",
-    mobile: "9876543210"
+    bio: "Expect non-addictive and educated",
+    mobile: "8108871419"
   },
 
   {
