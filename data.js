@@ -12,7 +12,7 @@ const candidates = [
     villageLocation: "Nalanda, Bihar",
     community: "Buddhist",
     maritalStatus: "Never Married",
-    image: "images/sandip.jpg",
+    image: "sandip.jpg",
     bio: "Active in social work, values family traditions and community pride.",
     mobile: "9876543210"
   },
