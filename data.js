@@ -2,6 +2,7 @@ const candidates = [
   {
     id: 1,
     name: "Sandip Ghaywat",
+    gender: "Groom",
     dob: "14 Aug 1992",
     height: "5 ft 8 in",
     weight: "68 kg",
@@ -19,6 +20,7 @@ const candidates = [
   {
     id: 2,
     name: "Rahul Pawar",
+    gender: "Groom",
     dob: "21 Feb 1995",
     height: "5 ft 6 in",
     weight: "65 kg",
@@ -36,6 +38,7 @@ const candidates = [
   {
     id: 3,
     name: "Amit Shinde",
+    gender: "Groom",
     dob: "05 Nov 1990",
     height: "5 ft 9 in",
     weight: "72 kg",
@@ -53,6 +56,7 @@ const candidates = [
   {
     id: 4,
     name: "Sonal Ghaywat",
+    gender: "Bride",
     dob: "18 Jun 1996",
     height: "5 ft 3 in",
     weight: "55 kg",
@@ -70,6 +74,7 @@ const candidates = [
   {
     id: 5,
     name: "Pooja Kamble",
+    gender: "Bride",
     dob: "30 Sep 1994",
     height: "5 ft 4 in",
     weight: "58 kg",

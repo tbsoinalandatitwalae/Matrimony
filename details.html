@@ -34,7 +34,12 @@
           <div class="header-info">
             <h2 id="name"></h2>
             <p id="basic"></p>
-            <span class="badge" id="community"></span>
+
+            <!-- Badges -->
+            <div class="badge-row">
+              <span class="badge" id="community"></span>
+              <span class="gender-badge" id="gender"></span>
+            </div>
           </div>
         </div>
 
@@ -96,14 +101,23 @@
     const candidate = candidates.find(c => c.id === id);
 
     if (candidate) {
-      // Header
+      /* Header */
       document.getElementById("photo").src = candidate.image || "images/default.jpg";
       document.getElementById("name").innerText = candidate.name || "—";
       document.getElementById("basic").innerText =
         `${candidate.education || "—"} • ${candidate.currentLocation || "—"}`;
       document.getElementById("community").innerText = candidate.community || "—";
 
-      // Personal Info
+      /* Gender badge */
+      const genderEl = document.getElementById("gender");
+      if (candidate.gender) {
+        genderEl.innerText = candidate.gender;
+        genderEl.setAttribute("data-gender", candidate.gender);
+      } else {
+        genderEl.style.display = "none";
+      }
+
+      /* Personal Info */
       document.getElementById("dob").innerText = candidate.dob || "—";
       document.getElementById("height").innerText = candidate.height || "—";
       document.getElementById("weight").innerText = candidate.weight || "—";
@@ -113,11 +127,11 @@
       document.getElementById("villageLocation").innerText = candidate.villageLocation || "—";
       document.getElementById("marital").innerText = candidate.maritalStatus || "—";
 
-      // About
+      /* About */
       document.getElementById("bio").innerText =
         candidate.bio || "Details will be shared after confirmation.";
 
-      // WhatsApp
+      /* WhatsApp */
       const message = encodeURIComponent(
         "Hello, I viewed your profile on Nalanda Matrimony and would like to connect."
       );

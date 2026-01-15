@@ -440,3 +440,49 @@ footer {
     font-size: 11pt;
   }
 }
+
+/* ===== Gender Badge ===== */
+.badge-row {
+  margin-top: 6px;
+}
+
+.gender-badge {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.gender-badge:empty {
+  display: none;
+}
+
+/* Colors */
+.gender-badge {
+  background-color: #3498db; /* default */
+  color: white;
+}
+
+/* Bride specific */
+.gender-badge::before {
+  content: "";
+}
+
+.gender-badge {
+  background-color: #e84393; /* Bride */
+}
+
+.gender-badge[data-gender="Groom"] {
+  background-color: #3498db;
+}
+
+/* Print-safe */
+@media print {
+  .gender-badge {
+    background: none;
+    color: black;
+    border: 1px solid black;
+  }
+}
