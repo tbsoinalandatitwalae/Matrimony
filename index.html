@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-  
-
 <head>
   <meta charset="UTF-8">
   <title>Nalanda Matrimony</title>
@@ -10,7 +8,8 @@
 </head>
 
 <body>
-  <!-- 🌟 Header -->
+
+  <!-- 🌸 Header -->
   <header>
     <div class="header-content">
       <h1>🌸 Nalanda Matrimony</h1>
@@ -18,31 +17,33 @@
     </div>
   </header>
 
-  <!-- 🔄 Layout -->
-  <div class="main-layout">
-    <!-- Left side: Background watermark -->
-    <div class="left-panel watermark">
-      <h2 style="text-align:center; color:#8e44ad;">Welcome to Nalanda Matrimony</h2>
-      <p style="text-align:center;">Browse profiles after login or registration</p>
-    </div>
+  <!-- 🔐 Login Section -->
+  <div class="login-page">
+    <div class="login-card">
+      <h2>Member Login</h2>
+      <p class="login-subtext">Login to view verified biodata profiles</p>
 
-    <!-- Right side: Login/Register -->
-    <div class="right-panel">
-      <div class="login-card">
-        <h2>Member Access</h2>
-        
-        <!-- Login -->
-        <input type="text" id="mobile" placeholder="Mobile Number">
-        <input type="password" id="password" placeholder="Password">
-        <button onclick="login()">Login</button>
-        
-        <hr>
-        
-        <!-- Register -->
-        <button onclick="window.location.href='Register.html'">Register</button>
-        
-        <p class="note">Login with mobile number & password or Register to view profiles</p>
+      <div class="input-group">
+        <label>Mobile Number</label>
+        <input type="text" id="mobile" placeholder="Enter 10 digit mobile number">
       </div>
+
+      <div class="input-group">
+        <label>Password</label>
+        <input type="password" id="password" placeholder="Enter password">
+      </div>
+
+      <button class="login-btn" onclick="login()">Login</button>
+
+      <div class="divider">OR</div>
+
+      <button class="register-btn" onclick="window.location.href='Register.html'">
+        New Member? Register
+      </button>
+
+      <p class="note">
+        🔒 Secure access | Community verified profiles
+      </p>
     </div>
   </div>
 
@@ -52,23 +53,23 @@
     <p>Contact: nalandamatrimony@example.com</p>
   </footer>
 
-<script>
-  function login() {
-    const mobile = document.getElementById("mobile").value.trim();
-    const password = document.getElementById("password").value.trim();
+  <!-- ✅ Login Script -->
+  <script>
+    function login() {
+      const mobile = document.getElementById("mobile").value.trim();
+      const password = document.getElementById("password").value.trim();
 
-    const hardcodedPassword = "123";
+      const hardcodedPassword = "123";
 
-    if (mobile.length === 10 && password === hardcodedPassword) {
-      localStorage.setItem("isLoggedIn", "true");
-      localStorage.setItem("userMobile", mobile); // optional
-      alert("Login successful!");
-      window.location.href = "profile.html";
-    } else {
-      alert("Invalid mobile number or password.");
+      if (mobile.length === 10 && password === hardcodedPassword) {
+        localStorage.setItem("isLoggedIn", "true");
+        localStorage.setItem("userMobile", mobile);
+        window.location.href = "profile.html";
+      } else {
+        alert("Invalid mobile number or password");
+      }
     }
-  }
-</script>
+  </script>
 
 </body>
 </html>
