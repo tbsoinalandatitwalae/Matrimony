@@ -336,4 +336,22 @@ const candidates = [
     bio: "Family-oriented, believes in mutual respect and understanding.",
     mobile: "776819010"
   }
+  ,
+    {
+    id: 20,
+    name: "Rohit Mangesh Gaikwad",
+    gender: "Groom",
+    dob: "25 Aug 2000",
+    height: "5 ft 5 in",
+    weight: "80 kg",
+    education: "B.A LLB",
+    salary: "1.2 LPA",
+    currentLocation: "Titwala",
+    villageLocation: "Titwala",
+    community: "Buddhist",
+    maritalStatus: "Never Married",
+    image: "19.jpg",
+    bio: "Family-oriented, believes in mutual respect and understanding.",
+    mobile: "7506453797"
+  }
 ];
