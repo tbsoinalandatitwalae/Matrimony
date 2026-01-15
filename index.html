@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Nalanda Matrimony</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- 🌟 Header -->
+  <header>
+    <div class="header-content">
+      <h1>🌸 Nalanda Matrimony</h1>
+      <p>Find your life partner with dignity and trust</p>
+    </div>
+  </header>
+
+  <!-- 🔄 Layout -->
+  <div class="main-layout">
+    <!-- Left side: Background watermark -->
+    <div class="left-panel watermark">
+      <h2 style="text-align:center; color:#8e44ad;">Welcome to Nalanda Matrimony</h2>
+      <p style="text-align:center;">Browse profiles after login or registration</p>
+    </div>
+
+    <!-- Right side: Login/Register -->
+    <div class="right-panel">
+      <div class="login-card">
+        <h2>Member Access</h2>
+        
+        <!-- Login -->
+        <input type="text" id="mobile" placeholder="Mobile Number">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="login()">Login</button>
+        
+        <hr>
+        
+        <!-- Register -->
+        <button onclick="window.location.href='Register.html'">Register</button>
+        
+        <p class="note">Login with mobile number & password or Register to view profiles</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 🌐 Footer -->
+  <footer>
+    <p>© 2026 Nalanda Matrimony | Designed with ❤️ in Maharashtra</p>
+    <p>Contact: nalandamatrimony@example.com</p>
+  </footer>
+
+  <script>
+    function login() {
+      const mobile = document.getElementById("mobile").value;
+      const password = document.getElementById("password").value;
+
+      // Hardcoded password
+      const hardcodedPassword = "nalanda123";
+
+      if (mobile && password === hardcodedPassword) {
+        alert("Login successful!");
+        window.location.href = "profile.html";
+      } else {
+        alert("Invalid mobile number or password.");
+      }
+    }
+  </script>
+</body>
+</html>
