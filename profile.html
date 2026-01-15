@@ -4,25 +4,27 @@
   <meta charset="UTF-8">
   <title>Nalanda Matrimony Profiles</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- 🌟 Header -->
+
+  <!-- 🌸 Header -->
   <header>
-    <div class="header-content">
-      <h1>🌸 Nalanda Matrimony</h1>
-      <p>Browse verified biodata profiles</p>
-    </div>
+    <h1>🌸 Nalanda Matrimony</h1>
+    <p>Browse verified biodata profiles</p>
   </header>
 
   <!-- 🔍 Filters -->
   <div class="filter-bar">
     <input type="text" id="searchInput" placeholder="🔍 Search by name, education, or location">
+
     <select id="ageFilter">
       <option value="">Age Range</option>
       <option value="20-25">20–25</option>
       <option value="26-30">26–30</option>
       <option value="31-35">31–35</option>
     </select>
+
     <select id="educationFilter">
       <option value="">Education</option>
       <option value="MBA">MBA</option>
@@ -31,6 +33,7 @@
       <option value="M.Sc">M.Sc</option>
       <option value="LLB">LLB</option>
     </select>
+
     <select id="locationFilter">
       <option value="">Location</option>
       <option value="Mumbai">Mumbai</option>
@@ -39,18 +42,12 @@
       <option value="Nashik">Nashik</option>
       <option value="Thane">Thane</option>
     </select>
+
     <button id="resetBtn">Reset</button>
   </div>
 
   <!-- 💍 Profiles Grid -->
   <div id="profiles" class="grid"></div>
-
-  <!-- 📄 Pagination -->
-  <div class="pagination">
-    <button id="prevBtn">Previous</button>
-    <span id="pageInfo"></span>
-    <button id="nextBtn">Next</button>
-  </div>
 
   <!-- 🌐 Footer -->
   <footer>
@@ -60,11 +57,21 @@
   <!-- Candidate Data -->
   <script src="data.js"></script>
 
-  <!-- Rendering Script -->
+  <!-- Filter & Render Script -->
   <script>
     const profilesContainer = document.getElementById("profiles");
+    const searchInput = document.getElementById("searchInput");
+    const ageFilter = document.getElementById("ageFilter");
+    const educationFilter = document.getElementById("educationFilter");
+    const locationFilter = document.getElementById("locationFilter");
+    const resetBtn = document.getElementById("resetBtn");
 
     function renderProfiles(data) {
+      if (data.length === 0) {
+        profilesContainer.innerHTML = "<p style='text-align:center;'>No profiles found</p>";
+        return;
+      }
+
       profilesContainer.innerHTML = data.map(candidate => `
         <div class="card">
           <img src="${candidate.image}" alt="${candidate.name}" class="profile-img">
@@ -76,14 +83,63 @@
             <p>Community: ${candidate.community}</p>
             <p>Marital Status: ${candidate.maritalStatus}</p>
             <p>${candidate.bio}</p>
-            <a href="details.html?id=${candidate.id}" class="detail-link">View Full Profile</a>
+            <a href="details.html?id=${candidate.id}" class="detail-link">
+              View Full Profile
+            </a>
           </div>
         </div>
       `).join("");
     }
 
-    // Initial render
+    function applyFilters() {
+      let filtered = [...candidates];
+
+      // 🔍 Search
+      const text = searchInput.value.toLowerCase();
+      if (text) {
+        filtered = filtered.filter(c =>
+          c.name.toLowerCase().includes(text) ||
+          c.education.toLowerCase().includes(text) ||
+          c.location.toLowerCase().includes(text)
+        );
+      }
+
+      // 🎂 Age
+      if (ageFilter.value) {
+        const [min, max] = ageFilter.value.split("-").map(Number);
+        filtered = filtered.filter(c => c.age >= min && c.age <= max);
+      }
+
+      // 🎓 Education
+      if (educationFilter.value) {
+        filtered = filtered.filter(c => c.education === educationFilter.value);
+      }
+
+      // 📍 Location
+      if (locationFilter.value) {
+        filtered = filtered.filter(c => c.location === locationFilter.value);
+      }
+
+      renderProfiles(filtered);
+    }
+
+    // Events
+    searchInput.addEventListener("input", applyFilters);
+    ageFilter.addEventListener("change", applyFilters);
+    educationFilter.addEventListener("change", applyFilters);
+    locationFilter.addEventListener("change", applyFilters);
+
+    resetBtn.addEventListener("click", () => {
+      searchInput.value = "";
+      ageFilter.value = "";
+      educationFilter.value = "";
+      locationFilter.value = "";
+      renderProfiles(candidates);
+    });
+
+    // Initial load
     renderProfiles(candidates);
   </script>
+
 </body>
 </html>

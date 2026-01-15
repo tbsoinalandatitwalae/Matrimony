@@ -2,83 +2,122 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Full Profile - Nalanda Matrimony</title>
+  <title>Profile Details - Nalanda Matrimony</title>
+
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- 🌟 Header -->
-  <header>
-    <div class="header-content">
-      <h1>🌸 Nalanda Matrimony</h1>
-      <p>Find your life partner with dignity and trust</p>
-    </div>
+
+  <!-- 🌸 Header -->
+  <header class="no-print">
+    <h1>🌸 Nalanda Matrimony</h1>
+    <p>Verified Matrimonial Biodata</p>
   </header>
 
-  <!-- 🔄 Layout -->
+  <!-- 🔄 Main Layout -->
   <div class="main-layout">
-    <!-- Left side: Background watermark -->
-    <div class="left-panel watermark">
-      <h2 style="text-align:center; color:#8e44ad;">Profile Details</h2>
-      <p style="text-align:center;">View full biodata with family, horoscope & contact info</p>
-    </div>
-
-    <!-- Right side: Full Profile -->
     <div class="right-panel">
-      <div class="profile-card">
+      <div class="profile-card" id="biodata">
+
+        <!-- Actions -->
+        <div class="download-area no-print">
+          <button onclick="window.print()" class="download-btn">
+            📄 Download Biodata (PDF)
+          </button>
+        </div>
+
+        <!-- Profile Header -->
+        <div class="profile-header">
+          <img id="photo" class="detail-photo" src="" alt="Profile Photo">
+
+          <div class="header-info">
+            <h2 id="name"></h2>
+            <p id="basic"></p>
+            <span class="badge" id="community"></span>
+          </div>
+        </div>
+
         <!-- Personal Info -->
         <section class="profile-section">
-          <h2>👤 Personal Information</h2>
-          <ul>
-            <li><strong>Full Name:</strong> Rahul Patil</li>
-            <li><strong>Age:</strong> 28 Years</li>
-            <li><strong>Education:</strong> B.E. in Computer Science</li>
-            <li><strong>Occupation:</strong> Software Engineer</li>
-            <li><strong>Location:</strong> Mumbai</li>
-          </ul>
+          <h3>👤 Personal Information</h3>
+          <div class="info-grid">
+            <p><strong>Age:</strong> <span id="age"></span></p>
+            <p><strong>Marital Status:</strong> <span id="marital"></span></p>
+            <p><strong>Education:</strong> <span id="education"></span></p>
+            <p><strong>Location:</strong> <span id="location"></span></p>
+          </div>
         </section>
 
-        <!-- Family Background -->
+        <!-- About -->
         <section class="profile-section">
-          <h2>👨‍👩‍👧‍👦 Family Background</h2>
-          <ul>
-            <li><strong>Father:</strong> Ajay Patil (Businessman)</li>
-            <li><strong>Mother:</strong> Sunita Patil (Homemaker)</li>
-            <li><strong>Siblings:</strong> 1 Brother (Student)</li>
-            <li><strong>Family Status:</strong> Middle Class</li>
-            <li><strong>Native Place:</strong> Pune</li>
-          </ul>
+          <h3>💬 About</h3>
+          <p class="expectation-box" id="bio"></p>
         </section>
 
-        <!-- Horoscope -->
-        <section class="profile-section">
-          <h2>🔮 Horoscope</h2>
-          <ul>
-            <li><strong>Date of Birth:</strong> 12 Jan 1996</li>
-            <li><strong>Time of Birth:</strong> 09:15 AM</li>
-            <li><strong>Place of Birth:</strong> Mumbai</li>
-            <li><strong>Rashi / Nakshatra:</strong> Tula / Chitra</li>
-          </ul>
-          <button class="download-btn">Download Horoscope PDF</button>
+        <!-- Contact -->
+        <section class="profile-section contact-box">
+          <h3>📞 Contact</h3>
+
+          <!-- WhatsApp Button -->
+          <p class="no-print">
+            <a id="whatsappLink" target="_blank" class="whatsapp-btn">
+              💬 Contact on WhatsApp
+            </a>
+          </p>
+
+          <!-- Print Text -->
+          <p class="print-only">
+            Contact details will be shared after confirmation.
+          </p>
         </section>
 
-        <!-- Contact Details -->
-        <section class="profile-section">
-          <h2>📞 Contact Details</h2>
-          <ul>
-            <li><strong>Mobile:</strong> ********90</li>
-            <li><strong>Email:</strong> rahul.patil@example.com</li>
-            <li><strong>City:</strong> Mumbai</li>
-          </ul>
-        </section>
       </div>
     </div>
   </div>
 
   <!-- 🌐 Footer -->
-  <footer>
+  <footer class="no-print">
     <p>© 2026 Nalanda Matrimony | Designed with ❤️ in Maharashtra</p>
-    <p>Contact: nalandamatrimony@example.com</p>
   </footer>
+
+  <!-- Candidate Data -->
+  <script src="data.js"></script>
+
+  <!-- Dynamic Profile Loader + WhatsApp -->
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const id = parseInt(params.get("id"));
+
+    const candidate = candidates.find(c => c.id === id);
+
+    if (candidate) {
+      document.getElementById("photo").src = candidate.image;
+      document.getElementById("name").innerText = candidate.name;
+      document.getElementById("basic").innerText =
+        `${candidate.age} Years • ${candidate.education} • ${candidate.location}`;
+      document.getElementById("community").innerText = candidate.community;
+
+      document.getElementById("age").innerText = candidate.age;
+      document.getElementById("marital").innerText = candidate.maritalStatus;
+      document.getElementById("education").innerText = candidate.education;
+      document.getElementById("location").innerText = candidate.location;
+      document.getElementById("bio").innerText = candidate.bio;
+
+      // WhatsApp setup
+      const message = encodeURIComponent(
+        `Hello, I viewed your profile on Nalanda Matrimony and would like to connect.`
+      );
+
+      if (candidate.mobile) {
+        document.getElementById("whatsappLink").href =
+          `https://wa.me/91${candidate.mobile}?text=${message}`;
+      } else {
+        document.getElementById("whatsappLink").href =
+          "https://wa.me/918805512694";
+      }
+    }
+  </script>
+
 </body>
 </html>

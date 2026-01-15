@@ -21,5 +21,6 @@ const candidates = [
     image: "images/priya.jpg",
     bio: "Creative, caring, and passionate about cultural events."
   }
+  
   // Add more profiles...
 ];
